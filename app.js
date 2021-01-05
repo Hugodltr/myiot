@@ -1,10 +1,11 @@
-function app(res) {
+function app(res, data) {
 
+    // TODO: get data from DB
     
-
     res.render('./index.ejs',
     {
-        name: "Vincent"
+        name: "Vincent",
+        data
     });
 }
 
