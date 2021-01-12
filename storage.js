@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 const mysql = require('mysql');
 
 const endpointUrl = "mqtt://94.247.176.184";
-const itemsToRead = [{ topic: "covidAlert" }, { topic: "vegetables" }, { topic: "#" }];
+const itemsToRead = [{ topic: "covidAlert" }, { topic: "vegetables" }, { topic: "airQuality" }];
 
 const connection = mysql.createPool({
     host: '195.144.11.150',
@@ -46,13 +46,11 @@ function listen() {
                     });
                 }
 
-                break;
-
             default:
                 data = JSON.parse(message);
                 console.log(data);
 
-                connection.query('INSERT INTO covidAlert SET ?', data, function(err, result) {
+                connection.query(`INSERT INTO ${topic} SET ?`, data, function(err, result) {
                     if (err) throw err;
                     console.log('Data inserted!');
                 });
