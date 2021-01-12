@@ -33,29 +33,13 @@ function listen() {
     client.on('message', function(topic, message) {
         console.log(`topic: ${topic}, message: ${message}`)
 
-        //TODO: store to DB
-        let data;
-        switch (topic) {
-            case 'covidAlert':
-                data = JSON.parse(message);
 
-                if (data.image) {
-                    fs.writeFile("test.jpg", data.image, (err) => {
-                        if (err) throw err;
-                        console.log('Image saved!');
-                    });
-                }
+        let data = JSON.parse(message);
 
-            default:
-                data = JSON.parse(message);
-
-                connection.query(`INSERT INTO ${topic} SET ?`, data, function(err, result) {
-                    if (err) throw err;
-                    console.log('Data inserted!');
-                });
-
-                break;
-        }
+        connection.query(`INSERT INTO ${topic} SET ?`, data, function(err, result) {
+            if (err) throw err;
+            console.log('Data inserted!');
+        });
     });
 
     // End of process
