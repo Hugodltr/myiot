@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2/promise');
 
 const connection = mysql.createPool({
     host: '195.144.11.150',
@@ -7,33 +7,28 @@ const connection = mysql.createPool({
     database: 'zdj62854'
 });
 
-function app(res) {
+async function app(res) {
 
     let vegetables, covidAlert, airQuality;
 
+    results = await connection.query('SELECT * FROM vegetables LIMIT 10');
+    vegetables = results[0];
 
-    connection.query('SELECT * FROM vegetables LIMIT 10', function(error, results, fields) {
-        if (error) throw error;
+    results = await connection.query('SELECT * FROM covidAlert LIMIT 10');
+    covidAlert = results[0];
 
-        vegetables = results[0];
-    });
+    results = await connection.query('SELECT * FROM airQuality LIMIT 10');
+    airQuality = results[0];
 
-    connection.query('SELECT * FROM covidAlert LIMIT 10', function(error, results, fields) {
-        if (error) throw error;
-
-        covidAlert = results[0];
-    });
-
-    connection.query('SELECT * FROM airQuality LIMIT 10', function(error, results, fields) {
-        if (error) throw error;
-
-        airQuality = results[0];
-    });
+    results = await connection.query('SELECT * FROM test_image LIMIT 10');
+    let image = results[0]
 
     res.render('./index.ejs', {
         vegetables,
         covidAlert,
-        airQuality
+        airQuality,
+        image,
+        name: "Vincent"
     });
 }
 
