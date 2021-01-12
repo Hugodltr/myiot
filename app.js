@@ -14,6 +14,9 @@ async function app(res) {
     results = await connection.query('SELECT * FROM vegetables LIMIT 10');
     vegetables = results[0];
 
+    results = await connection.query('SELECT * FROM vegetables LIMIT 10');
+    vegetables = results[0];
+
     results = await connection.query('SELECT * FROM covidAlert LIMIT 10');
     covidAlert = results[0];
 
