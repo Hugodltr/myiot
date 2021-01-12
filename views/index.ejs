@@ -11,13 +11,43 @@
     <script src="./js/app.js"></script>
 </head>
 
-<body>
-    Hello
-    <%= name %>
-
-        <div class="data">
-            <%= data %>
-        </div>
+<body class="bg-white font-sans leading-normal tracking-normal"></body>
+    <div class="parent">
+        <header class="blue section" contenteditable>
+            Header
+        </header>
+        <main class="coral section" contenteditable>
+            <div class="contenu-carrousel">
+                <div class="carrousel">
+                    <div>
+                        <div class="flex justify-end">
+                            <p>Luminosité :</p>
+                            <img class="w-12 h-12 mt-6 mr-6"src="../images/sun.png"> 
+                        </div>   
+                        <h1> Plantes </h1>                
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div>
+                        <div class="flex justify-end">
+                            <p>Luminosité :</p>
+                            <img class="w-12 h-12 mt-6 mr-6"src="../images/sun.png"> 
+                        </div>   
+                        <h1> Plantes </h1>  
+                    </div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class=controle>
+                <button onclick="carrousel('-')">❮</button>
+                <button onclick="carrousel('')">❯</button>
+            </div>
+        </main>
+        <footer class="purple section" contenteditable>
+            Footer
+        </footer>
+      </div>
 </body>
 
 </html>
