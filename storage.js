@@ -44,14 +44,17 @@ function listen() {
                 let data = JSON.parse(message);
                 console.log(data);
 
-                var responseJson = JSON.stringify(data.response);
-
-                connection.query('INSERT INTO covidAlert SET column=?', responseJson,
-                    function(err, result) {
+                if (data.image) {
+                    fs.writeFile("test.jpg", data.image, (err) => {
                         if (err) throw err;
-                        console.log('data inserted');
-                    }
-                );
+                        console.log('Image saved!');
+                    });
+                }
+
+                connection.query('INSERT INTO covidAlert SET ?', data, function(err, result) {
+                    if (err) throw err;
+                    console.log('Data inserted!');
+                });
 
                 break;
 
