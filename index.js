@@ -11,11 +11,10 @@ const port = 3000
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(express.static(__dirname + '/public'));
 
-let data = [];
 mqtt.listen();
 
 app.get('/', function(req, res) {
-    return main.app(res, data)
+    return main.app(res)
 })
 
 app.use(function(req, res, next) { //Page introuvable (404)

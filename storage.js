@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 const mysql = require('mysql');
 
 const endpointUrl = "mqtt://94.247.176.184";
-const itemsToRead = [{ topic: "covidAlert" }, { topic: "#" }];
+const itemsToRead = [{ topic: "covidAlert" }, { topic: "vegetables" }, { topic: "#" }];
 
 const connection = mysql.createPool({
     host: '195.144.11.150',
@@ -15,11 +15,6 @@ function listen() {
 
     // Connection
     client = mqtt.connect(endpointUrl);
-
-    connection.query('SELECT * FROM vegetables', function(error, results, fields) {
-        if (error) throw error;
-        console.log(results[0]);
-    });
 
     client.stream.on('error', function(error) {
         console.log("error: ", error)
@@ -39,23 +34,29 @@ function listen() {
         console.log(`topic: ${topic}, message: ${message}`)
 
         //TODO: store to DB
+        let data;
         switch (topic) {
             case 'covidAlert':
-                let data = JSON.parse(message);
-                console.log(data);
+                data = JSON.parse(message);
 
-                var responseJson = JSON.stringify(data.response);
-
-                connection.query('INSERT INTO covidAlert SET column=?', responseJson,
-                    function(err, result) {
+                if (data.image) {
+                    fs.writeFile("test.jpg", data.image, (err) => {
                         if (err) throw err;
-                        console.log('data inserted');
-                    }
-                );
+                        console.log('Image saved!');
+                    });
+                }
 
                 break;
 
             default:
+                data = JSON.parse(message);
+                console.log(data);
+
+                connection.query('INSERT INTO covidAlert SET ?', data, function(err, result) {
+                    if (err) throw err;
+                    console.log('Data inserted!');
+                });
+
                 break;
         }
     });
