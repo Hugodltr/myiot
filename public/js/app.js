@@ -2,10 +2,10 @@ var angle = 0;function carrousel(sign){
 
     spinner=document.querySelector(".carrousel");
     
-    if(!sign){angle = angle + 60}
+    if(!sign){angle = angle - 60}
     else{ 
     
-    angle = angle - 60
+    angle = angle + 60
     
     }
     
