@@ -21,10 +21,15 @@
   "dependencies": {
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "http": "0.0.1-security",
     "jquery": "^3.5.1",
     "mqtt": "^4.2.6",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.6",
-    "serve-favicon": "^2.5.0"
+    "normalize.css": "^8.0.1",
+    "serve-favicon": "^2.5.0",
+    "slick-carousel": "^1.8.1",
+    "socker.io": "0.0.0-alpha-beta",
+    "socket.io": "^3.0.5"
   }
 }

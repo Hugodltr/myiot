@@ -1,11 +1,12 @@
 // Module
 const express = require('express')
+const app = express()
 const favicon = require('serve-favicon');
 const main = require('./app')
 const mqtt = require('./storage')
+const http = require('http').createServer(app);
 
 // Constants
-const app = express()
 const port = 3000
 
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
@@ -22,6 +23,6 @@ app.use(function(req, res, next) { //Page introuvable (404)
     res.status(404).send('Page introuvable !');
 });
 
-app.listen(port, () => {
+http.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`)
 })

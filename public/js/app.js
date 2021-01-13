@@ -1,12 +1,16 @@
-var angle = 0;function carrousel(sign){
-
-    spinner=document.querySelector(".carrousel");
-    
-    if(!sign){angle = angle - 60}
-    else{ 
-    
-    angle = angle + 60
-    
-    }
-    
-    spinner.setAttribute("style","transform:rotateY("+ angle +"deg);")}	
+$('document').ready(function() {
+    var swiper = new Swiper('.swiper-container', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        loop: true,
+    });
+});

@@ -33,7 +33,6 @@ function listen() {
     client.on('message', function(topic, message) {
         console.log(`topic: ${topic}, message: ${message}`)
 
-
         let data = JSON.parse(message);
 
         connection.query(`INSERT INTO ${topic} SET ?`, data, function(err, result) {
