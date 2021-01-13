@@ -19,71 +19,36 @@
     <script src="./js/app.js"></script>
 </head>
 
-<body class="bg-white font-sans leading-normal tracking-normal">
-    <!-- <div class="parent">
-        <header class="blue section" contenteditable>
-            Header
-            <img src="data:image/jpg;base64,<%= image[0].image %>" />
-        </header>
-        <main class="coral section " contenteditable>
-            <div class="contenu-carrousel ">
-                <div class="carrousel ">
-                    <div>
-                        <div class="flex justify-end ">
-                            <p>Luminosité :</p>
-                            <img class="w-12 h-12 mt-6 mr-6 " src="../images/sun.png ">
-                        </div>
-                        <div></div>
-                        <div></div>
-                        <div>
-                            <div class="flex justify-end">
-                                <p>Luminosité :</p>
-                                <img class="w-12 h-12 mt-6 mr-6" src="../images/sun.png">
-                            </div>
-                            <h1> Plantes </h1>
-                        </div>
-                        <div>
-                            Test
-                            <%= covidAlert[covidAlert.length - 1].temperature %> °C
-                        </div>
-                        <div></div>
-                    </div>
-                    <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-                        <div class="gallery-cell">1</div>
-                        <div class="gallery-cell">2</div>
-                        <div class="gallery-cell"></div>
-                        <div class="gallery-cell"></div>
-                        <div class="gallery-cell"></div>
-                    </div>
-                    <div>
-                        Test
-                        <%= covidAlert[covidAlert.length - 1].temperature %> °C
-                    </div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            <div class=controle>
-                <button onclick="carrousel( '-') ">❮</button>
-                <button onclick="carrousel( '') ">❯</button>
-            </div>
-        </main>
-        <footer class="purple section " contenteditable>
-            Footer
-        </footer> 
-    </div>-->
+<body class="bg-yellow-50 w-screen h-screen">
 
     <!-- Slider main container -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">1</div>
-            <div class="swiper-slide">2</div>
-            <div class="swiper-slide">3</div>
+            <div class="swiper-slide swiper-slide-h bg-white">1</div>
+            <div class="swiper-slide swiper-slide-h bg-white">2</div>
+            <div class="swiper-slide swiper-slide-h">
+                <div class="swiper-container-v">
+                    <div class="swiper-wrapper swiper-wrapper-v">
+                        <div class="swiper-slide swiper-slide-v bg-red-100">Vertical Slide 1</div>
+                        <div class="swiper-slide swiper-slide-v bg-green-100">Vertical Slide 2</div>
+                        <div class="swiper-slide swiper-slide-v">Vertical Slide 3</div>
+                        <div class="swiper-slide swiper-slide-v">Vertical Slide 4</div>
+                        <div class="swiper-slide swiper-slide-v">Vertical Slide 5</div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-v"></div>
+                </div>
+            </div>
         </div>
+
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
 
-
+    <footer class="bg-blue-200">
+        Footer
+        <br> Footer
+    </footer>
 </body>
 
 </html>

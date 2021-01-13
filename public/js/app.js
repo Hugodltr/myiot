@@ -12,5 +12,18 @@ $('document').ready(function() {
             slideShadows: true,
         },
         loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    var swiperV = new Swiper('.swiper-container-v', {
+        direction: 'vertical',
+        spaceBetween: 500,
+        pagination: {
+            el: '.swiper-pagination-v',
+            clickable: true,
+        },
     });
 });
