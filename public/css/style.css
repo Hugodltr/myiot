@@ -7,8 +7,12 @@ body {
     width: 100%;
     height: 100%;
     flex: 1;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.swiper-slide {
+    height: 90%;
 }
 
 .swiper-slide-h {
@@ -28,4 +32,12 @@ body {
 
 .swiper-slide-v {
     height: 100%;
+}
+
+h1, p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logo {
+    height: 10vh;
 }

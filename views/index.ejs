@@ -7,6 +7,8 @@
     <title>My IoT</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/tailwind.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">     
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -19,13 +21,33 @@
     <script src="./js/app.js"></script>
 </head>
 
-<body class="bg-yellow-50 w-screen h-screen">
+<body class="bg-white w-screen h-screen">
+
+    <header class="bg-green-700">
+        <h1 class="text-center text-gray-200"> MyIoT </h1>
+    </header>
 
     <!-- Slider main container -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide swiper-slide-h bg-white">1</div>
-            <div class="swiper-slide swiper-slide-h bg-white">2</div>
+            <div class="swiper-slide swiper-slide-h bg-white">
+                <h1 class="text-center text-gray-700">Projet Weed</h1>
+                <div class="grid grid-cols-2 flex mt-3">
+                    <div class="ml-3">
+                        <p class="text-gray-700">
+                            Température relevée
+                        </p>
+                    </div>
+                    <div class="mr-3">
+                        <p class="text-right text-gray-700">
+                            Luminosité : 
+                        </p>
+                    </div>  
+                </div>
+            </div>
+            <div class="swiper-slide swiper-slide-h bg-white">
+                Alerte covid
+            </div>
             <div class="swiper-slide swiper-slide-h">
                 <div class="swiper-container-v">
                     <div class="swiper-wrapper swiper-wrapper-v">
@@ -45,9 +67,24 @@
         <div class="swiper-button-prev"></div>
     </div>
 
-    <footer class="bg-blue-200">
-        Footer
-        <br> Footer
+    <footer class="bg-green-700">
+        <div class="grid grid-cols-6 flex mt-3">
+            <div class="col-start-2">
+                <img src="../images/logo.png" class="logo">
+            </div>
+            <div class="col-start-3">
+                <h1 class="text-gray-200">
+                    Contact
+                </h1>
+                <p class="text-gray-200 text-xs mt-3 mb-4">
+                    Hugo & Mabarouk <br> 13 rue des Coquelicots <br> 06 01 01 01 01
+                </p>
+            </div>
+            <div class="col-start-5">
+                <img src="../images/ilan.jpg" class="logo">
+            </div>
+
+        </div>
     </footer>
 </body>
 
