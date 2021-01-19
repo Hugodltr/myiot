@@ -122,16 +122,29 @@
                 </div>
                 <div class="flex flex-row justify-around mt-3">
                     <div class="ml-3">
-                        <img src="../images/factory.png" class="icon-airQuality">
-                        <p class="text-center font-bold weed-data xl:ml-1 ">
-                            <%= airQuality[0].pollution%> de pollution
-                        </p>
+                        <% if( airQuality[0].pollution < 100)  {%>
+                            <img src="../images/air-purifier.png" class="icon-airQuality">                
+                            <p class="text-white bg-gray-600 font-bold weed-data xl:ml-1 xl:mr-3">
+                                L'air est respirable
+                            </p>
+                        <% } %>
                     </div>
                     <div class="mr-3">
-                        <img src="../images/smoke.png" class="icon-airQuality">
-                        <p class="font-bold weed-data xl:ml-1 mr-3">
-                            <%= airQuality[0].gas %>% de gaz
-                        </p>
+                        <% if( airQuality[0].gas < 300)  
+                            {%>
+                                <img src="../images/sun.png" class="icon-airQuality">
+                                <p class="text-white bg-gray-600 font-bold weed-data xl:ml-1 xl:mr-3">
+                                    Pas trop de fumée
+                                </p>
+                            <%}
+                        else
+                            {%>
+                                <img src="../images/sun.png" class="icon-airQuality">
+                                <p class="font-bold weed-data xl:ml-1 mr-3">
+                                   Trop de fumée
+                                </p>
+                            <%}
+                         %>
                     </div>
                 </div>
             </div>
@@ -173,15 +186,15 @@
              <!-- Alerte Covid -->
              <div class="swiper-slide swiper-slide-h bg-white">
                 <div class="swiper-container-v">
-                    <div class="swiper-wrapper swiper-wrapper-v">
-                        <button id="button1" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Bouton 1
+                    <div class="swiper-wrapper swiper-wrapper-v flex">
+                        <button id="button1" class="bg-blue-200 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex-1">
+                            Main haut
                         </button>
-                        <button id="button2" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Bouton 2
+                        <button id="button2" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex-1">
+                            Position moyenne
                         </button>
-                        <button id="button3" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Bouton 3
+                        <button id="button3" class="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex-1">
+                            Main bas
                         </button>
                     </div>
                     <div class="swiper-pagination swiper-pagination-v"></div>
@@ -205,7 +218,7 @@
                     Contact
                 </h1>
                 <p class="text-gray-200 text-xs mt-3 mb-4">
-                    Hugrocostaud & Mabarouk <br> 13 rue des Coquelicots <br> 06 07 48 24 78
+                    Hugrocostaud & Vincenturion <br> 13 rue des Coquelicots <br> 06 07 48 24 78
                 </p>
             </div>
             <div class="">
