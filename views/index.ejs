@@ -49,10 +49,28 @@
                     </div>
                     <div class="mr-3">
                         <p class="text-right text-white font-semibold weed-data">
-                            Luminosité :
-                            <%= vegetables[vegetables.length - 1].sunlight %>
+                            <<<<<<< HEAD Luminosité : <%=v egetables[vegetables.length - 1].sunlight %>
+                                ======= Luminosité :
+                                <%= vegetables[vegetables.length - 1].visible %>
+                                    >>>>>>> 1ecd6ece0d211e34feaa9f55353b031977df361a
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-row justify-between mt-3">
+                    <div class="ml-3">
+                        <p class="text-white font-semibold weed-data">
+                            Humidité :
+                            <%= vegetables[vegetables.length - 1].humidity%>
                         </p>
 
+
+                    </div>
+                    <div class="mr-3">
+                        <p class="text-right text-white font-semibold weed-data">
+                            UV/IR :
+                            <%= vegetables[vegetables.length - 1].uv %> /
+                                <%= vegetables[vegetables.length - 1].ir %>
+                        </p>
                     </div>
                 </div>
                 <div class="flex justify-center mt-10 h-full">
@@ -63,22 +81,32 @@
                                 <th class="border border-green-600 text-white font-semibold ">Température</th>
                                 <th class="border border-green-600 text-white font-semibold ">Luminosité</th>
                                 <th class="border border-green-600 text-white font-semibold ">Humidité</th>
+                                <th class="border border-green-600 text-white font-semibold ">UV</th>
+                                <th class="border border-green-600 text-white font-semibold ">IR</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="border border-green-600 text-white text-center ">
-                                    <%= vegetables[0].timestamp%>
-                                </td>
-                                <td class="border border-green-600 text-white text-center">
-                                    <%= vegetables[0].temperature%> °C</td>
-                                <td class="border border-green-600 text-white text-center">
-                                    <%= vegetables[0].sunlight %>
-                                </td>
-                                <td class="border border-green-600 text-white text-center">
-                                    <%= vegetables[0].moisture%>
-                                </td>
-                            </tr>
+                            <% for(var i=1; i<4; i++) {%>
+                                <tr>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].timestamp %>
+                                    </td>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].temperature %> °C</td>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].visible %>
+                                    </td>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].humidity %>
+                                    </td>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].uv %>
+                                    </td>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].ir %>
+                                    </td>
+                                </tr>
+                                <% } %>
                         </tbody>
                     </table>
                 </div>
@@ -86,7 +114,10 @@
 
             <!-- Air Quality -->
             <div class="swiper-slide swiper-slide-h airQuality-slide">
-                Air Quality
+                <div class="flex flex-row justify-center bg-gray-400 xl:py-3 py-1">
+                    <h1 class="text-center text-black font-semibold">Air Quality</h1>
+                </div>
+
             </div>
 
             <!-- Alerte Covid -->
@@ -95,28 +126,41 @@
                     <div class="swiper-wrapper swiper-wrapper-v">
                         <% for(var i=1; i<6; i++) {%>
                             <div class="swiper-slide swiper-slide-v">
-                                <div class="flex flex-row justify-center bg-gray-400 xl:py-3 py-1">
+                                <div class="flex flex-row justify-center bg-blue-400 xl:py-3 py-1">
                                     <h1 class="text-center text-black font-semibold">Alerte Covid</h1>
                                 </div>
-                                <!-- Affichage photo -->
-                                <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto bg-white covid-photo">
-                                    <img src="data:image/jpg;base64,<%=covidAlert[0].image%>" class="object-fill w-full">
-                                </div>
                                 <p class="text-black font-semibold ml-3 mt-3">
-                                    Dernière visite le :
-                                    <%= covidAlert[0].timestamp %>
+                                    Température :
+                                    <%= covidAlert[i].temperature %>
                                 </p>
+                                <!-- Affichage photo -->
+                                <<<<<<< HEAD <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto bg-white covid-photo">
+                                    <img src="data:image/jpg;base64,<%=covidAlert[0].image%>" class="object-fill w-full">
                             </div>
-                            <% } %>
+                            <p class="text-black font-semibold ml-3 mt-3">
+                                Dernière visite le :
+                                <%= covidAlert[0].timestamp %>
+                                    =======
+                                    <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto covid-photo">
+                                        <img src="data:image/jpg;base64,<%=covidAlert[i].image%>" class="object-fill w-full">
+                                    </div>
+                                    <p class="text-black font-semibold ml-3 mt-3">
+                                        Dernière visite le :
+                                        <%= covidAlert[i].timestamp %>
+                                            >>>>>>> 1ecd6ece0d211e34feaa9f55353b031977df361a
+                                    </p>
+
                     </div>
-                    <div class="swiper-pagination swiper-pagination-v"></div>
+                    <% } %>
                 </div>
+                <div class="swiper-pagination swiper-pagination-v"></div>
             </div>
         </div>
+    </div>
 
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
     </div>
 
     <!-- Footer -->
