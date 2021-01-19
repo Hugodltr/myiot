@@ -37,25 +37,25 @@
                 <div class="flex flex-row justify-between mt-3">
                     <div class="ml-3">
                         <p class="text-white font-semibold">
-                            Température relevée : <%= vegetables[0].temperature%> °C
+                            Température actuelle : <%= vegetables[vegetables.length - 1].temperature%> °C
                         </p>
 
 
                     </div>
                     <div class="mr-3">
                         <p class="text-right text-white font-semibold">
-                            Luminosité : <%= vegetables[0].sunlight %>
+                            Luminosité : <%= vegetables[vegetables.length - 1].sunlight %>
                         </p>
                     </div>
                 </div>
                 <div class="flex justify-center mt-10 h-full">
-                    <table class="table-fixed border-collapse border border-green-800 ml-3 mr-3">
+                    <table class="table-auto border-collapse border border-green-800 ml-3 mr-3">
                         <thead>
                         <tr>
-                            <th class="border border-green-600 text-white font-semibold w-1/4">Date</th>
-                            <th class="border border-green-600 text-white font-semibold w-1/6">Température</th>
-                            <th class="border border-green-600 text-white font-semibold w-1/6">Luminosité</th>
-                            <th class="border border-green-600 text-white font-semibold w-1/6">Humidité</th>
+                            <th class="border border-green-600 text-white font-semibold ">Date</th>
+                            <th class="border border-green-600 text-white font-semibold ">Température</th>
+                            <th class="border border-green-600 text-white font-semibold ">Luminosité</th>
+                            <th class="border border-green-600 text-white font-semibold ">Humidité</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -83,7 +83,7 @@
                     Affichage de la photo
                 </div>
                 <p class="text-black font-semibold ml-3 mt-3">
-                    Dernière visite le : <%= covidAlert[6].timestamp %>
+                    Dernière visite le : <%= covidAlert[covidAlert.length - 1].timestamp %>
                 </p>
                 <!-- <div class="swiper-container-v">
                     <div class="swiper-wrapper swiper-wrapper-v">
@@ -114,7 +114,7 @@
                     Contact
                 </h1>
                 <p class="text-gray-200 text-xs mt-3 mb-4">
-                    Hugo & Mabarouk <br> 13 rue des Coquelicots <br> 06 01 01 01 01
+                    Hugrocostaud & Mabarouk <br> 13 rue des Coquelicots <br> 06 01 01 01 01
                 </p>
             </div>
             <div class="">
