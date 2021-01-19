@@ -30,19 +30,19 @@ $('document').ready(function() {
     var socket = io();
 
     socket.on('covidAlert', function(msg) {
-        console.log(msg)
+        document.location.reload();
     });
 
     socket.on('vegetables1', function(msg) {
-        console.log(msg)
+        document.location.reload();
     });
 
     socket.on('vegetables2', function(msg) {
-        console.log(msg)
+        document.location.reload();
     });
 
     socket.on('airQuality', function(msg) {
-        console.log(msg)
+        document.location.reload();
     });
 
 });

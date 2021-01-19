@@ -32,7 +32,6 @@ async function app(res) {
         covidAlert,
         airQuality,
         image,
-        name: "Vincent"
     });
 }
 

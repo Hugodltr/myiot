@@ -22,7 +22,11 @@
     <script src="/socket.io/socket.io.js"></script>
 
     <script src="./js/app.js"></script>
+
 </head>
+
+
+
 
 <body class="bg-white w-screen h-screen bg-green-700">
 
@@ -36,7 +40,7 @@
             <!-- Projet Weed -->
             <div class="swiper-slide swiper-slide-h weed-slide">
                 <div class="flex flex-row justify-center bg-green-900 xl:py-3 py-1">
-                    <h1 class="text-center text-white font-semibold">Projet Weed</h1>
+                    <h1 class="text-center text-white font-semibold" id="weedTemp">Projet Weed</h1>
                 </div>
                 <div class="flex flex-row justify-between mt-3">
                     <div class="ml-3">
@@ -44,7 +48,6 @@
                             Température actuelle :
                             <%= vegetables[vegetables.length - 1].temperature%> °C
                         </p>
-
 
                     </div>
                     <div class="mr-3">
@@ -122,22 +125,27 @@
             <div class="swiper-slide swiper-slide-h covid-slide">
                 <div class="swiper-container-v">
                     <div class="swiper-wrapper swiper-wrapper-v">
-                        <% for(var i=1; i<6; i++) {%>
-                            <div class="swiper-slide swiper-slide-v">
+                        <% for(var i=0; i<5; i++) {%>
+                            <div class="swiper-slide swiper-slide-v swiper-covid">
                                 <div class="flex flex-row justify-center bg-blue-400 xl:py-3 py-1">
                                     <h1 class="text-center text-black font-semibold">Alerte Covid</h1>
                                 </div>
                                 <p class="text-black font-semibold ml-3 mt-3">
                                     Température :
-                                    <%= covidAlert[i].temperature %>
+                                    <span id="covidAlertTemp<%= i %>">
+                                        <%= covidAlert[i].temperature %>
+                                    </span>
                                 </p>
                                 <!-- Affichage photo -->
                                 <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto covid-photo">
-                                    <img src="data:image/jpg;base64,<%=covidAlert[i].image%>" class="object-fill w-full">
+                                    <img id="covidAlertImage<%= i %>" src="data:image/jpg;base64,<%=covidAlert[i].image%>" class="object-fill w-full">
                                 </div>
                                 <p class="text-black font-semibold ml-3 mt-3">
                                     Dernière visite le :
-                                    <%= covidAlert[i].timestamp %>
+                                    <span id="covidAlertTimestamp<%= i %>">
+                                        <%= covidAlert[i].timestamp %>
+                                    </span>
+
                                 </p>
 
                             </div>
