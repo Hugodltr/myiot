@@ -57,4 +57,12 @@ footer, header {
     .weed-table {
         font-size: x-small;
     }
+
+    footer {
+        display: none;
+    }
+
+    .weed-data {
+        font-size: small;
+    }
 }
