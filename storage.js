@@ -15,9 +15,7 @@ function listen(io) {
 
     // Connection
     client = mqtt.connect(endpointUrl);
-    io.on('connection', (socket) => {
-        console.log('a user connected');
-    });
+    io.on('connection', (socket) => {});
 
     client.stream.on('error', function(error) {
         console.log("error: ", error)
@@ -43,6 +41,9 @@ function listen(io) {
             console.log('Data inserted!');
         });
 
+        // console.log(data)
+        data = formatDate(data);
+
         io.emit(topic, data);
     });
 
@@ -52,6 +53,28 @@ function listen(io) {
         connection.end();
         process.exit();
     });
+}
+
+function formatDate(obj) {
+    if (obj.timestamp) {
+        let d = new Date(obj.timestamp);
+
+        const ye = new Intl.DateTimeFormat('fr', { year: 'numeric' }).format(d);
+        const mo = new Intl.DateTimeFormat('fr', { month: 'short' }).format(d);
+        const da = new Intl.DateTimeFormat('fr', { day: '2-digit' }).format(d);
+
+        var hours = d.getHours();
+        var minutes = "0" + d.getMinutes();
+        var seconds = "0" + d.getSeconds();
+
+        var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+        let formattedDate = `${da} ${mo} ${ye}, ${formattedTime}`;
+
+        obj.timestamp = formattedDate;
+    }
+
+    return obj;
 }
 
 module.exports = { listen };
