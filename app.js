@@ -11,15 +11,15 @@ async function app(res) {
 
     let vegetables, covidAlert, airQuality;
 
-    results = await connection.query('SELECT * FROM vegetables1 LIMIT 10');
+    results = await connection.query('SELECT * FROM vegetables1 ORDER BY timestamp DESC LIMIT 10');
     results[0] = formatDate(results[0]);
     vegetables = results[0];
 
-    results = await connection.query('SELECT * FROM covidAlert ORDER BY timestamp DESC LIMIT 10');
+    results = await connection.query('SELECT * FROM covidAlert LIMIT 10');
     results[0] = formatDate(results[0]);
     covidAlert = results[0];
 
-    results = await connection.query('SELECT * FROM airQuality LIMIT 10');
+    results = await connection.query('SELECT * FROM airQuality ORDER BY timestamp DESC LIMIT 10');
     results[0] = formatDate(results[0]);
     airQuality = results[0];
 
