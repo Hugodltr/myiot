@@ -35,10 +35,12 @@
         <div class="swiper-wrapper">
             <!-- Projet Weed -->
             <div class="swiper-slide swiper-slide-h weed-slide">
-                <h1 class="text-center text-white font-semibold">Projet Weed</h1>
+                <div class="flex flex-row justify-center bg-green-900 xl:py-3 py-1">
+                    <h1 class="text-center text-white font-semibold">Projet Weed</h1>
+                </div>
                 <div class="flex flex-row justify-between mt-3">
                     <div class="ml-3">
-                        <p class="text-white font-semibold">
+                        <p class="text-white font-semibold weed-data">
                             Température actuelle :
                             <%= vegetables[vegetables.length - 1].temperature%> °C
                         </p>
@@ -46,14 +48,14 @@
 
                     </div>
                     <div class="mr-3">
-                        <p class="text-right text-white font-semibold">
+                        <p class="text-right text-white font-semibold weed-data">
                             Luminosité :
                             <%= vegetables[vegetables.length - 1].sunlight %>
                         </p>
                     </div>
                 </div>
                 <div class="flex justify-center mt-10 h-full">
-                    <table class="table-auto border-collapse border border-green-800 ml-3 mr-3">
+                    <table class="weed-table table-auto border-collapse border border-green-800 ml-3 mr-3 bg-green-900 opacity-80">
                         <thead>
                             <tr>
                                 <th class="border border-green-600 text-white font-semibold ">Date</th>
@@ -88,25 +90,26 @@
 
             <!-- Alerte Covid -->
             <div class="swiper-slide swiper-slide-h covid-slide">
-                <h1 class="text-center text-black font-semibold">Alerte Covid</h1>
-                <!-- Affichage photo -->
-                <div class="flex flex-row justify-center w-3/4 h-3/4 mt-5 ml-auto mr-auto bg-white ">
-                    Affichage de la photo
-                </div>
-                <p class="text-black font-semibold ml-3 mt-3">
-                    Dernière visite le :
-                    <%= covidAlert[covidAlert.length - 1].timestamp %>
-                </p>
-                <!-- <div class="swiper-container-v">
+                <div class="swiper-container-v">
                     <div class="swiper-wrapper swiper-wrapper-v">
-                        <div class="swiper-slide swiper-slide-v bg-red-100">Vertical Slide 1</div>
-                        <div class="swiper-slide swiper-slide-v bg-green-100">Vertical Slide 2</div>
-                        <div class="swiper-slide swiper-slide-v">Vertical Slide 3</div>
-                        <div class="swiper-slide swiper-slide-v">Vertical Slide 4</div>
-                        <div class="swiper-slide swiper-slide-v">Vertical Slide 5</div>
+                        <% for(var i=1; i<6; i++) {%>
+                            <div class="swiper-slide swiper-slide-v">
+                                <div class="flex flex-row justify-center bg-gray-400 xl:py-3 py-1">
+                                    <h1 class="text-center text-black font-semibold">Alerte Covid</h1>
+                                </div>
+                                <!-- Affichage photo -->
+                                <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto bg-white covid-photo">
+                                    Affichage de la photo
+                                </div>
+                                <p class="text-black font-semibold ml-3 mt-3">
+                                    Dernière visite le :
+                                    <%= covidAlert[covidAlert.length - i].timestamp %>
+                                </p>
+                            </div>
+                            <% } %>
                     </div>
                     <div class="swiper-pagination swiper-pagination-v"></div>
-                </div> -->
+                </div>
             </div>
         </div>
 
@@ -132,7 +135,6 @@
             <div class="">
                 <img src="../images/ilan.jpg" class="logo">
             </div>
-
         </div>
     </footer>
 </body>

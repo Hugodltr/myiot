@@ -52,3 +52,25 @@ footer, header {
 .logo {
     height: 10vh;
 }
+
+.covid-photo {
+    height: 70%;
+}
+
+@media screen and (max-width: 840px) {
+    .weed-table {
+        font-size: x-small;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .weed-data {
+        font-size: small;
+    }
+
+    .covid-photo {
+        height: 60%;
+    }
+}
