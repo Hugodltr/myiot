@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 const mysql = require('mysql2');
 
 const endpointUrl = "mqtt://94.247.176.184";
-const itemsToRead = [{ topic: "covidAlert" }, { topic: "vegetables" }, { topic: "airQuality" }, { topic: 'test_image' }];
+const itemsToRead = [{ topic: "covidAlert" }, { topic: "airQuality" }, { topic: 'test_image' }];
 
 const connection = mysql.createPool({
     host: '195.144.11.150',
