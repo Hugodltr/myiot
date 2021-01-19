@@ -31,10 +31,10 @@ function listen() {
 
     //When receiving a message
     client.on('message', function(topic, message) {
-        console.log(`topic: ${topic}, message: ${message}`)
 
         let data = JSON.parse(message);
 
+        console.log(`received ${topic}`)
         connection.query(`INSERT INTO ${topic} SET ?`, data, function(err, result) {
             if (err) throw err;
             console.log('Data inserted!');
@@ -47,7 +47,6 @@ function listen() {
         connection.end();
         process.exit();
     });
-
 }
 
 module.exports = { listen };
