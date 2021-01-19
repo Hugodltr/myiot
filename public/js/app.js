@@ -45,4 +45,16 @@ $('document').ready(function() {
         document.location.reload();
     });
 
+    $('#button1').click(() => {
+        socket.emit('button', '1');
+    })
+
+    $('#button2').click(() => {
+        socket.emit('button', '2');
+    })
+
+    $('#button3').click(() => {
+        socket.emit('button', '3');
+    })
+
 });

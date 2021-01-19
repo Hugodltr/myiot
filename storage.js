@@ -15,7 +15,11 @@ function listen(io) {
 
     // Connection
     client = mqtt.connect(endpointUrl);
-    io.on('connection', (socket) => {});
+    io.on('connection', (socket) => {
+        socket.on('button', (msg) => {
+            client.publish('Control', msg)
+        });
+    });
 
     client.stream.on('error', function(error) {
         console.log("error: ", error)
