@@ -100,12 +100,11 @@
                                 </div>
                                 <!-- Affichage photo -->
                                 <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto bg-white covid-photo">
-                                    <img src="data:image/jpg;base64,<%=covidAlert[0].image%>" class="object-fill w-full"> 
+                                    <img src="data:image/jpg;base64,<%=covidAlert[0].image%>" class="object-fill w-full">
                                 </div>
                                 <p class="text-black font-semibold ml-3 mt-3">
                                     Dernière visite le :
                                     <%= covidAlert[0].timestamp %>
-                                        <%= console.log(covidAlert[0].timestamp) %>
                                 </p>
                             </div>
                             <% } %>

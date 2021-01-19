@@ -41,7 +41,7 @@ function listen(io) {
             console.log('Data inserted!');
         });
 
-        // console.log(data)
+
         data = formatDate(data);
 
         io.emit(topic, data);
