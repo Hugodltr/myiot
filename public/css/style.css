@@ -11,6 +11,18 @@ body {
     margin-bottom: 50px;
 }
 
+.covid-slide {
+    background-image: url(../images/covid.jpg);
+}
+
+.weed-slide {
+    background-image: url(../images/weed.jpg);
+}
+
+.airQuality-slide {
+    background-image: url(../images/meteo.jpg);
+}
+
 .swiper-slide {
     height: 90%;
 }
@@ -19,7 +31,6 @@ body {
     background-position: center;
     background-size: cover;
     max-width: 40vw;
-    border: solid;
 }
 
 .swiper-container-v {
@@ -34,7 +45,7 @@ body {
     height: 100%;
 }
 
-h1, p {
+footer, header {
     font-family: 'Open Sans', sans-serif;
 }
 

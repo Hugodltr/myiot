@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/tailwind.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -21,40 +22,80 @@
     <script src="./js/app.js"></script>
 </head>
 
-<body class="bg-white w-screen h-screen bg-green-600">
+<body class="bg-white w-screen h-screen bg-green-700">
 
-    <header class="mt-3">
-        <h1 class="text-center text-gray-200 font-bold text-2xl"> Only IoT </h1>
+    <header class="bg-green-900 pb-3">
+        <h1 class="text-center text-gray-200 font-bold text-2xl bg"> My IoT </h1>
     </header>
 
     <!-- Slider main container -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <!-- Projet Weed -->
-            <div class="swiper-slide swiper-slide-h bg-white">
-                <h1 class="text-center text-gray-700">Projet Weed</h1>
-                <div class="grid grid-cols-2 flex mt-3">
+            <div class="swiper-slide swiper-slide-h weed-slide">
+                <h1 class="text-center text-white font-semibold">Projet Weed</h1>
+                <div class="flex flex-row justify-between mt-3">
                     <div class="ml-3">
-                        <p class="text-gray-700">
-                            Température relevée
+                        <p class="text-white font-semibold">
+                            Température relevée :
+                            <%= vegetables[0].temperature%> °C
                         </p>
+
+
                     </div>
                     <div class="mr-3">
-                        <p class="text-right text-gray-700">
+                        <p class="text-right text-white font-semibold">
                             Luminosité :
+                            <%= vegetables[0].sunlight %>
                         </p>
                     </div>
+                </div>
+                <div class="flex justify-center mt-10 h-full">
+                    <table class="table-fixed border-collapse border border-green-800 ml-3 mr-3">
+                        <thead>
+                            <tr>
+                                <th class="border border-green-600 text-white font-semibold w-1/4">Date</th>
+                                <th class="border border-green-600 text-white font-semibold w-1/6">Température</th>
+                                <th class="border border-green-600 text-white font-semibold w-1/6">Luminosité</th>
+                                <th class="border border-green-600 text-white font-semibold w-1/6">Humidité</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-green-600 text-white text-center ">
+                                    <%= vegetables[0].timestamp%>
+                                </td>
+                                <td class="border border-green-600 text-white text-center">
+                                    <%= vegetables[0].temperature%> °C</td>
+                                <td class="border border-green-600 text-white text-center">
+                                    <%= vegetables[0].sunlight %>
+                                </td>
+                                <td class="border border-green-600 text-white text-center">
+                                    <%= vegetables[0].moisture%>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
             <!-- Air Quality -->
-            <div class="swiper-slide swiper-slide-h bg-white">
+            <div class="swiper-slide swiper-slide-h airQuality-slide">
                 Air Quality
             </div>
 
             <!-- Alerte Covid -->
-            <div class="swiper-slide swiper-slide-h">
-                <div class="swiper-container-v">
+            <div class="swiper-slide swiper-slide-h covid-slide">
+                <h1 class="text-center text-black font-semibold">Alerte Covid</h1>
+                <!-- Affichage photo -->
+                <div class="flex flex-row justify-center w-3/4 h-3/4 mt-5 ml-auto mr-auto bg-white ">
+                    Affichage de la photo
+                </div>
+                <p class="text-black font-semibold ml-3 mt-3">
+                    Dernière visite le :
+                    <%= covidAlert[6].timestamp %>
+                </p>
+                <!-- <div class="swiper-container-v">
                     <div class="swiper-wrapper swiper-wrapper-v">
                         <div class="swiper-slide swiper-slide-v bg-red-100">Vertical Slide 1</div>
                         <div class="swiper-slide swiper-slide-v bg-green-100">Vertical Slide 2</div>
@@ -63,7 +104,7 @@
                         <div class="swiper-slide swiper-slide-v">Vertical Slide 5</div>
                     </div>
                     <div class="swiper-pagination swiper-pagination-v"></div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -74,11 +115,11 @@
 
     <!-- Footer -->
     <footer class="bg-green-900">
-        <div class="grid grid-cols-6 mt-3">
+        <div class="flex flex-row mt-3 justify-evenly">
             <!-- <div class="col-start-2">
                 <img src="../images/logo.png" class="logo">
             </div> -->
-            <div class="col-start-3">
+            <div class="flex flex-col">
                 <h1 class="text-gray-200">
                     Contact
                 </h1>
@@ -86,7 +127,7 @@
                     Hugo & Mabarouk <br> 13 rue des Coquelicots <br> 06 01 01 01 01
                 </p>
             </div>
-            <div class="col-start-5">
+            <div class="">
                 <img src="../images/ilan.jpg" class="logo">
             </div>
 
