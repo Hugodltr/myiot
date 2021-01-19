@@ -26,4 +26,35 @@ $('document').ready(function() {
             clickable: true,
         },
     });
+
+    var socket = io();
+
+    socket.on('covidAlert', function(msg) {
+        document.location.reload();
+    });
+
+    socket.on('vegetables1', function(msg) {
+        document.location.reload();
+    });
+
+    socket.on('vegetables2', function(msg) {
+        document.location.reload();
+    });
+
+    socket.on('airQuality', function(msg) {
+        document.location.reload();
+    });
+
+    $('#button1').click(() => {
+        socket.emit('button', '1');
+    })
+
+    $('#button2').click(() => {
+        socket.emit('button', '2');
+    })
+
+    $('#button3').click(() => {
+        socket.emit('button', '3');
+    })
+
 });

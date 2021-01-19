@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/tailwind.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -19,13 +19,19 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+    <script src="/socket.io/socket.io.js"></script>
+
     <script src="./js/app.js"></script>
+
 </head>
+
+
+
 
 <body class="bg-white w-screen h-screen bg-green-700">
 
     <header class="bg-green-900 pb-3">
-        <h1 class="text-center text-gray-200 font-bold text-2xl bg"> MyIoT </h1>
+        <h1 class="text-center text-gray-200 font-bold text-2xl bg"> My IoT </h1>
     </header>
 
     <!-- Slider main container -->
@@ -34,7 +40,7 @@
             <!-- Projet Weed -->
             <div class="swiper-slide swiper-slide-h weed-slide">
                 <div class="flex flex-row justify-center bg-green-900 xl:py-3 py-1">
-                    <h1 class="text-center text-white font-semibold">Projet Weed</h1>
+                    <h1 class="text-center text-white font-semibold" id="weedTemp">Projet Weed</h1>
                 </div>
                 <div class="flex flex-row justify-around mt-3">
                     <div class="ml-3">
@@ -73,26 +79,37 @@
                 <div class="flex justify-center mt-10 h-full">
                     <table class="weed-table table-auto border-collapse border border-green-800 ml-3 mr-3 bg-green-900 opacity-80">
                         <thead>
-                        <tr>
-                            <th class="border border-green-600 text-white font-semibold ">Date</th>
-                            <th class="border border-green-600 text-white font-semibold ">Température</th>
-                            <th class="border border-green-600 text-white font-semibold ">Luminosité</th>
-                            <th class="border border-green-600 text-white font-semibold ">Humidité</th>
-                            <th class="border border-green-600 text-white font-semibold ">UV</th>
-                            <th class="border border-green-600 text-white font-semibold ">IR</th>
-                        </tr>
+                            <tr>
+                                <th class="border border-green-600 text-white font-semibold ">Date</th>
+                                <th class="border border-green-600 text-white font-semibold ">Température</th>
+                                <th class="border border-green-600 text-white font-semibold ">Luminosité</th>
+                                <th class="border border-green-600 text-white font-semibold ">Humidité</th>
+                                <th class="border border-green-600 text-white font-semibold ">UV</th>
+                                <th class="border border-green-600 text-white font-semibold ">IR</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <% for(var i=1; i<4; i++) {%>
-                            <tr>
-                                <td class="border border-green-600 text-white text-center"><%= vegetables[i].timestamp %></td>
-                                <td class="border border-green-600 text-white text-center"><%= vegetables[i].temperature %> °C</td>
-                                <td class="border border-green-600 text-white text-center"><%= vegetables[i].visible %></td>
-                                <td class="border border-green-600 text-white text-center"><%= vegetables[i].humidity %> </td>
-                                <td class="border border-green-600 text-white text-center"><%= vegetables[i].uv %> </td>
-                                <td class="border border-green-600 text-white text-center"><%= vegetables[i].ir %> </td>
-                            </tr>
-                        <% } %>
+                            <% for(var i=1; i<4; i++) {%>
+                                <tr>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].timestamp %>
+                                    </td>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].temperature %> °C</td>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].visible %>
+                                    </td>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].humidity %>
+                                    </td>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].uv %>
+                                    </td>
+                                    <td class="border border-green-600 text-white text-center">
+                                        <%= vegetables[i].ir %>
+                                    </td>
+                                </tr>
+                                <% } %>
                         </tbody>
                     </table>
                 </div>
@@ -129,18 +146,25 @@
                                     <h1 class="text-center text-black font-semibold">Alerte Covid</h1>
                                 </div>
                                 <p class="text-black font-semibold ml-3 mt-3">
-                                    Température : <%= covidAlert[i].temperature %>
+                                    Température :
+                                    <span id="covidAlertTemp<%= i %>">
+                                        <%= covidAlert[i].temperature %>
+                                    </span>
                                 </p>
                                 <!-- Affichage photo -->
                                 <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto covid-photo">
-                                    <img src="data:image/jpg;base64,<%=covidAlert[i].image%>" class="object-fill w-full"> 
+                                    <img id="covidAlertImage<%= i %>" src="data:image/jpg;base64,<%=covidAlert[i].image%>" class="object-fill w-full">
                                 </div>
                                 <p class="text-black font-semibold ml-3 mt-3">
-                                    Dernière visite le : <%= covidAlert[i].timestamp %>
+                                    Dernière visite le :
+                                    <span id="covidAlertTimestamp<%= i %>">
+                                        <%= covidAlert[i].timestamp %>
+                                    </span>
+
                                 </p>
-                               
+
                             </div>
-                        <% } %>
+                            <% } %>
                     </div>
                     <div class="swiper-pagination swiper-pagination-v"></div>
                 </div>

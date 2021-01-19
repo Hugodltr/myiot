@@ -16,6 +16,8 @@ with open("lisa.jpg", "rb") as imageFile:
 temperature = 30
 timestamp = 70000007
 
-client.publish("test_image", json.dumps(
+client.publish("covidAlert", json.dumps(
     {'timestamp': timestamp, 'temperature': temperature, 'image': str.decode("utf-8")})
 )
+
+print('send')
