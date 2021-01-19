@@ -57,6 +57,16 @@ footer, header {
     height: 70%;
 }
 
+.icon-weed {
+    height: 40px;
+    width: 40px;
+}
+
+.icon-airQuality {
+    height: 100px;
+    width: 100px;
+}
+
 @media screen and (max-width: 840px) {
     .weed-table {
         font-size: x-small;
@@ -72,5 +82,10 @@ footer, header {
 
     .covid-photo {
         height: 60%;
+    }
+
+    .icon-weed {
+        height: 20px;
+        width: 20px;
     }
 }

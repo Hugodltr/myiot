@@ -36,31 +36,37 @@
                 <div class="flex flex-row justify-center bg-green-900 xl:py-3 py-1">
                     <h1 class="text-center text-white font-semibold">Projet Weed</h1>
                 </div>
-                <div class="flex flex-row justify-between mt-3">
+                <div class="flex flex-row justify-around mt-3">
                     <div class="ml-3">
-                        <p class="text-white font-semibold weed-data">
-                            Température actuelle : <%= vegetables[vegetables.length - 1].temperature%> °C
+                        <img src="../images/hot.png" class="icon-weed">
+                        <p class="text-white font-semibold weed-data xl:ml-2">
+                            <%= vegetables[vegetables.length - 1].temperature%> °C
                         </p>
-
-
                     </div>
                     <div class="mr-3">
-                        <p class="text-right text-white font-semibold weed-data">
-                            Luminosité : <%= vegetables[vegetables.length - 1].visible %>
+                        <img src="../images/sun.png" class="icon-weed">
+                        <p class="text-right text-white font-semibold weed-data xl:mr-2">
+                            <%= vegetables[vegetables.length - 1].visible %>
                         </p>
                     </div>
                 </div>
-                <div class="flex flex-row justify-between mt-3">
+                <div class="flex flex-row justify-around mt-3">
                     <div class="ml-3">
-                        <p class="text-white font-semibold weed-data">
-                            Humidité : <%= vegetables[vegetables.length - 1].humidity%> 
+                        <img src="../images/humidity.png" class="icon-weed">
+                        <p class="text-white font-semibold weed-data xl:ml-1">
+                            <%= vegetables[vegetables.length - 1].humidity%> %
                         </p>
-
-
                     </div>
                     <div class="mr-3">
-                        <p class="text-right text-white font-semibold weed-data">
-                            UV/IR : <%= vegetables[vegetables.length - 1].uv %> /  <%= vegetables[vegetables.length - 1].ir %>
+                        <img src="../images/uv.png" class="icon-weed">
+                        <p class="text-right text-white font-semibold weed-data xl:mr-2">
+                            <%= vegetables[vegetables.length - 1].uv%>
+                        </p>
+                    </div>
+                    <div class="mr-3">
+                        <img src="../images/infrared.png" class="icon-weed">
+                        <p class="text-right text-white font-semibold weed-data xl:mr-2">
+                            <%= vegetables[vegetables.length - 1].ir %>
                         </p>
                     </div>
                 </div>
@@ -97,14 +103,27 @@
                 <div class="flex flex-row justify-center bg-gray-400 xl:py-3 py-1">
                     <h1 class="text-center text-black font-semibold">Air Quality</h1>
                 </div>
-                
+                <div class="flex flex-row justify-around mt-3">
+                    <div class="ml-3">
+                        <img src="../images/factory.png" class="icon-airQuality">
+                        <p class="text-center font-bold weed-data xl:ml-1 ">
+                            <%= airQuality[0].pollution%> de pollution
+                        </p>
+                    </div>
+                    <div class="mr-3">
+                        <img src="../images/smoke.png" class="icon-airQuality">
+                        <p class="font-bold weed-data xl:ml-1 mr-3">
+                            <%= airQuality[0].gas %>% de gaz
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <!-- Alerte Covid -->
             <div class="swiper-slide swiper-slide-h covid-slide">
                 <div class="swiper-container-v">
                     <div class="swiper-wrapper swiper-wrapper-v">
-                        <% for(var i=1; i<6; i++) {%>
+                        <% for(var i=0; i<5; i++) {%>
                             <div class="swiper-slide swiper-slide-v">
                                 <div class="flex flex-row justify-center bg-blue-400 xl:py-3 py-1">
                                     <h1 class="text-center text-black font-semibold">Alerte Covid</h1>
@@ -122,6 +141,24 @@
                                
                             </div>
                         <% } %>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-v"></div>
+                </div>
+            </div>
+
+             <!-- Alerte Covid -->
+             <div class="swiper-slide swiper-slide-h bg-white">
+                <div class="swiper-container-v">
+                    <div class="swiper-wrapper swiper-wrapper-v">
+                        <button id="button1" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Bouton 1
+                        </button>
+                        <button id="button2" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Bouton 2
+                        </button>
+                        <button id="button3" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Bouton 3
+                        </button>
                     </div>
                     <div class="swiper-pagination swiper-pagination-v"></div>
                 </div>
@@ -144,7 +181,7 @@
                     Contact
                 </h1>
                 <p class="text-gray-200 text-xs mt-3 mb-4">
-                    Hugrocostaud & Mabarouk <br> 13 rue des Coquelicots <br> 06 01 01 01 01
+                    Hugrocostaud & Mabarouk <br> 13 rue des Coquelicots <br> 06 07 48 24 78
                 </p>
             </div>
             <div class="">
