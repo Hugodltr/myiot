@@ -53,6 +53,10 @@ footer, header {
     height: 10vh;
 }
 
+.covid-photo {
+    height: 70%;
+}
+
 @media screen and (max-width: 840px) {
     .weed-table {
         font-size: x-small;
@@ -64,5 +68,9 @@ footer, header {
 
     .weed-data {
         font-size: small;
+    }
+
+    .covid-photo {
+        height: 50%;
     }
 }
