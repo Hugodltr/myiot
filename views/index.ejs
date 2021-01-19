@@ -48,6 +48,7 @@
                         <p class="text-right text-white font-semibold weed-data">
                             Luminosité : <%= vegetables[vegetables.length - 1].sunlight %>
                         </p>
+
                     </div>
                 </div>
                 <div class="flex justify-center mt-10 h-full">
@@ -88,10 +89,10 @@
                                 </div>
                                 <!-- Affichage photo -->
                                 <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto bg-white covid-photo">
-                                    Affichage de la photo
+                                    <img src="data:image/jpg;base64,<%=covidAlert[0].image%>">
                                 </div>
                                 <p class="text-black font-semibold ml-3 mt-3">
-                                    Dernière visite le : <%= covidAlert[covidAlert.length - i].timestamp %>
+                                    Dernière visite le : <%= covidAlert[0].timestamp %>
                                 </p>
                             </div>
                         <% } %>
