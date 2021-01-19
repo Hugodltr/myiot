@@ -49,10 +49,8 @@
                     </div>
                     <div class="mr-3">
                         <p class="text-right text-white font-semibold weed-data">
-                            <<<<<<< HEAD Luminosité : <%=v egetables[vegetables.length - 1].sunlight %>
-                                ======= Luminosité :
-                                <%= vegetables[vegetables.length - 1].visible %>
-                                    >>>>>>> 1ecd6ece0d211e34feaa9f55353b031977df361a
+                            Luminosité :
+                            <%= vegetables[vegetables.length - 1].visible %>
                         </p>
                     </div>
                 </div>
@@ -134,33 +132,25 @@
                                     <%= covidAlert[i].temperature %>
                                 </p>
                                 <!-- Affichage photo -->
-                                <<<<<<< HEAD <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto bg-white covid-photo">
-                                    <img src="data:image/jpg;base64,<%=covidAlert[0].image%>" class="object-fill w-full">
-                            </div>
-                            <p class="text-black font-semibold ml-3 mt-3">
-                                Dernière visite le :
-                                <%= covidAlert[0].timestamp %>
-                                    =======
-                                    <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto covid-photo">
-                                        <img src="data:image/jpg;base64,<%=covidAlert[i].image%>" class="object-fill w-full">
-                                    </div>
-                                    <p class="text-black font-semibold ml-3 mt-3">
-                                        Dernière visite le :
-                                        <%= covidAlert[i].timestamp %>
-                                            >>>>>>> 1ecd6ece0d211e34feaa9f55353b031977df361a
-                                    </p>
+                                <div class="flex flex-row justify-center w-3/4 mt-5 ml-auto mr-auto covid-photo">
+                                    <img src="data:image/jpg;base64,<%=covidAlert[i].image%>" class="object-fill w-full">
+                                </div>
+                                <p class="text-black font-semibold ml-3 mt-3">
+                                    Dernière visite le :
+                                    <%= covidAlert[i].timestamp %>
+                                </p>
 
+                            </div>
+                            <% } %>
                     </div>
-                    <% } %>
+                    <div class="swiper-pagination swiper-pagination-v"></div>
                 </div>
-                <div class="swiper-pagination swiper-pagination-v"></div>
             </div>
         </div>
-    </div>
 
-    <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
 
     <!-- Footer -->
