@@ -14,7 +14,7 @@ async function app(res) {
     results = await connection.query('SELECT * FROM vegetables1 ORDER BY timestamp DESC LIMIT 10');
     vegetables = results[0];
 
-    results = await connection.query('SELECT * FROM covidAlert LIMIT 10');
+    results = await connection.query('SELECT * FROM covidAlert ORDER BY timestamp DESC LIMIT 10');
     covidAlert = results[0];
 
     results = await connection.query('SELECT * FROM airQuality ORDER BY timestamp DESC LIMIT 10');
