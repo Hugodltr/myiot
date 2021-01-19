@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 const mysql = require('mysql2');
 
 const endpointUrl = "mqtt://94.247.176.184";
-const itemsToRead = [{ topic: "covidAlert" }, { topic: "vegetables" }, { topic: "airQuality" }, { topic: 'test_image' }];
+const itemsToRead = [{ topic: "covidAlert" }, { topic: "vegetables1" }, { topic: "airQuality" }];
 
 const connection = mysql.createPool({
     host: '195.144.11.150',
@@ -11,10 +11,13 @@ const connection = mysql.createPool({
     database: 'zdj62854'
 });
 
-function listen() {
+function listen(io) {
 
     // Connection
     client = mqtt.connect(endpointUrl);
+    io.on('connection', (socket) => {
+        console.log('a user connected');
+    });
 
     client.stream.on('error', function(error) {
         console.log("error: ", error)
@@ -39,6 +42,8 @@ function listen() {
             if (err) throw err;
             console.log('Data inserted!');
         });
+
+        io.emit(topic, data);
     });
 
     // End of process

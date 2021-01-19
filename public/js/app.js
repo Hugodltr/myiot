@@ -26,4 +26,23 @@ $('document').ready(function() {
             clickable: true,
         },
     });
+
+    var socket = io();
+
+    socket.on('covidAlert', function(msg) {
+        console.log(msg)
+    });
+
+    socket.on('vegetables1', function(msg) {
+        console.log(msg)
+    });
+
+    socket.on('vegetables2', function(msg) {
+        console.log(msg)
+    });
+
+    socket.on('airQuality', function(msg) {
+        console.log(msg)
+    });
+
 });

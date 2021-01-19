@@ -5,6 +5,8 @@ const favicon = require('serve-favicon');
 const main = require('./app')
 const mqtt = require('./storage')
 const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+
 
 // Constants
 const port = 3000
@@ -12,7 +14,7 @@ const port = 3000
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(express.static(__dirname + '/public'));
 
-mqtt.listen();
+mqtt.listen(io);
 
 app.get('/', function(req, res) {
     return main.app(res)
